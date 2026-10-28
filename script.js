@@ -11,3 +11,17 @@ function unlock() {
     message.textContent = "Incorrect password!";
   }
 }
+
+
+function showMore() {
+  const content = document.getElementById("Body");
+  const button = document.getElementById("showmoreB");
+
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    button.textContent = "Show Less";
+  } else {
+    content.style.display = "none";
+    button.textContent = "Show More";
+  }
+}

@@ -1,0 +1,97 @@
+
+.WelcomeSign {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 3.75rem;
+}
+
+.SiteProgress {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 4rem
+}
+
+.showmored {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5rem;
+}
+
+
+/* Smooth page entrance */
+body {
+  animation: pageFade 0.8s ease-out;
+  background: linear-gradient(to bottom, #316ebe, #324ea8, #203d6d);
+  color: white;
+  margin: 0;
+  min-height: 100vh;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing buttons */
+button {
+  background: linear-gradient(135deg, #316ebe, #324ea8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+
+  box-shadow: 0 0 12px rgba(49, 110, 190, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 12px rgba(49, 110, 190, 0.65),
+    0 0 30px rgba(50, 78, 168, 0.45);
+}
+
+button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(120, 180, 255, 0.5);
+  box-shadow: 0 0 25px rgba(49, 110, 190, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
