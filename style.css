@@ -1,14 +1,83 @@
+/* =========================
+   HERO / INTRO ANIMATION
+========================= */
 
-.WelcomeSign {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 3.75rem;
+.Hero {
+  position: relative;
+  overflow: clip;
 }
 
-.SiteProgress {
+.Site {
+  padding: 30px 0;
+}
+
+/* Existing heading and second heading share a position */
+.headtext {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+}
+
+
+.WelcomeSign {
+  justify-content: center;
+  grid-area: 1 / 1;
+  text-align: center;
+  margin: 30px 20px 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+}
+
+.CSOsign {
+  justify-content: left;
+  grid-area: 1 / 1;
+  text-align: left;
+  margin: 30px 30px 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3.5rem;
+}
+
+.WelcomeSign {
+  animation: welcomeFadeUp 4s ease-out forwards;
+}
+
+.CSOsign {
+  opacity: 0;
+  animation: CSOFadeUp 1s ease-out 4s forwards;
+}
+
+@keyframes welcomeFadeUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes CSOFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   OTHER TEXT
+========================= */
+
+.ProgressSign {
   text-align: center;
   margin-top: 5px;
-  font-size: 4rem
+  font-size: 4rem;
 }
 
 .showmored {
@@ -17,11 +86,13 @@
   font-size: 2.5rem;
 }
 
+/* =========================
+   BODY
+========================= */
 
-/* Smooth page entrance */
 body {
   animation: pageFade 0.8s ease-out;
-  background: linear-gradient(to bottom, #316ebe, #324ea8, #203d6d);
+  background: linear-gradient(to bottom, #324ea8, #203d6d, #1b2688);
   color: white;
   margin: 0;
   min-height: 100vh;
@@ -32,22 +103,23 @@ body {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Glowing buttons */
+/* =========================
+   BUTTONS
+========================= */
+
 button {
-  background: linear-gradient(135deg, #316ebe, #324ea8);
-  color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 12px 24px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 15px;
-
   box-shadow: 0 0 12px rgba(49, 110, 190, 0.35);
   transition:
     transform 0.25s ease,
@@ -66,15 +138,17 @@ button:active {
   transform: translateY(0) scale(0.97);
 }
 
+/* =========================
+   CARDS
+========================= */
+
 .card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 24px;
-
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -86,6 +160,74 @@ button:active {
   border-color: rgba(120, 180, 255, 0.5);
   box-shadow: 0 0 25px rgba(49, 110, 190, 0.25);
 }
+
+/* =========================
+   NAVBAR
+========================= */
+
+/* FLOATING NAVBAR */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+
+    width: min(1000px, calc(100% - 40px));
+    min-height: 58px;
+    box-sizing: border-box;
+
+    margin: 0.5px auto;
+    padding: 15px 25px;
+
+    background: rgba(20, 35, 75, 0.65);
+    border: 1px solid rgba(160, 190, 255, 0.2);
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(80, 130, 255, 0.12);
+
+    position: relative;
+    top: -120px;
+    right: -145px;
+    z-index: 10;
+
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+}
+
+.logo {
+    width: 50px;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-family: Fredoka, sans-serif;
+    font-size: 1.35rem;
+    
+    transition: all 0.25s ease;
+}
+
+nav a:hover {
+    color: #8ebaff;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,

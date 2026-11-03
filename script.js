@@ -3,7 +3,7 @@ function unlock() {
   const message = document.getElementById("message");
   const content = document.getElementById("protected-content");
 
-  if (password === "CORESTUDIOBESTADMINS!@#@") {
+  if (password === "CSOWORKSADMIN!@") {
     content.hidden = false;
     message.textContent = "Access granted!";
   } else {
